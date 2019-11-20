@@ -33,7 +33,8 @@ def make_stereo(input1, input2, output): # 함수 인자 : 왼쪽, 오른쪽, �
 
     wav1 = wave.open(input1) # open(file) : 파일 열기
     wav2 = wave.open(input2)
-    (nchannels, sampwidth, framerate, nframes, comptype, compname) = wav1.getparams() # getparams() : namedtuple() 반환 (get*()의 반환값과 같음) 
+    (nchannels, sampwidth, framerate, nframes, comptype, compname) = wav1.getparams()
+    # getparams() : namedtuple() 반환 (get*()의 반환값과 같음) 
 
     assert comptype == 'NONE'  # Compressed not supported yet
     array_type = {1:'B', 2: 'h', 4: 'l'}[sampwidth]
@@ -82,10 +83,10 @@ def rightControl (framerate, channel, array_type): # 오른쪽 파일 변환하�
         
         # 2초를 기준으로 적용하는 수식이 바뀜
         if pos < 2:# 2초 전이면
-            channelList[i] = int(channelList[i]*np.cos((np.pi/4)*pos)) # 보낸 그래프 사진에서 초록색 그래프 수식 적용
+            channelList[i] = int(channelList[i]*np.cos((np.pi/4)*pos))
         
-        else: # 2초 후 라면
-            channelList[i] = int(channelList[i]*(np.cos((np.pi/4)*(pos+2))+1)) # 보낸 그래프 사진에서 파란색 그래프 수식 적용
+        else: # 2초 후이면
+            channelList[i] = int(channelList[i]*(np.cos((np.pi/4)*(pos+2))+1))
 
     channel = array.array(array_type, channelList) # list로 변경하여 저장했던 것을 array로 변경해서 저장
     return channel # 변환된 array 반환
@@ -101,10 +102,10 @@ def leftControl (framerate, channel, array_type): # 왼쪽 파일 변환하는 �
         
         # 2초를 기준으로 적용하는 수식이 바뀜
         if pos < 2: # 2초 전이면
-            channelList[i] = int(channelList[i]*(np.cos((np.pi/4)*(pos+2))+1)) # 보낸 그래프 사진에서 파란색 그래프 수식 적용
+            channelList[i] = int(channelList[i]*(np.cos((np.pi/4)*(pos+2))+1))
             
-        else: # 2초 후 라면
-            channelList[i] = int(channelList[i]*(np.cos((np.pi/4)*(pos-4)))) # 보낸 그래프 사진에서 빨간색 그래프 수식 적용
+        else: # 2초 후이면
+            channelList[i] = int(channelList[i]*(np.cos((np.pi/4)*(pos-4))))
 
     channel = array.array(array_type, channelList) # list로 변경하여 저장했던 것을 array로 변경해서 저장
     return channel # 변환된 array 반환
