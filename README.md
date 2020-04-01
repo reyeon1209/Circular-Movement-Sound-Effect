@@ -18,5 +18,3 @@
 2. 프로그램은 준비된 4초 오디오 샘플을 입력으로 읽어들인다.
 3. 프로그램 출력은 아래와 같은 효과를 나타내는 오디오 샘플 wave 파일로 저장된다.
 ```
-
-![image](https://user-images.githubusercontent.com/46713032/68527041-e9d5d600-0325-11ea-90bf-4cde9d62ca79.png)
