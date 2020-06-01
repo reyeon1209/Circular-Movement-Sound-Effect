@@ -1,6 +1,6 @@
 # Circular-Movement-Sound-Effect
 
-* * *
+
 
 ## 학습 목표
 - 컴퓨터에 연결된 스테레오 스피커를 통해 소리가 움직이는 효과를 구현한다.
